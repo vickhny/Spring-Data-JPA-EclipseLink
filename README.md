@@ -7,14 +7,15 @@ In this tutorial we will setup a Spring-Boot application to use EclipseLink with
 # Fixing dependencies
 In order to use EclipseLink, we must remove Hibernate’s entity manager from the classpath in order to avoid problems. This is a matter of adding an exclusion to your application’s Gradle script or Maven’s pom.xml file. If you are using some other build tool this step won’t be necessary, or at least it will be different.
 
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa"){
-        exclude group: "org.hibernate", module: "hibernate-entitymanager"
-    }
-    //...Your project dependencies...
-}
+
+dependencies { <br/>
+    compile("org.springframework.boot:spring-boot-starter-web") <br/>
+    compile("org.springframework.boot:spring-boot-starter-actuator") <br/> 
+    compile("org.springframework.boot:spring-boot-starter-data-jpa"){ <br/>
+        exclude group: "org.hibernate", module: "hibernate-entitymanager" <br/>
+    } <br/>
+    //...Your project dependencies... <br/>
+} <br/>
 
 In the above code block we are adding the exclusion to a Gradle script.
 
